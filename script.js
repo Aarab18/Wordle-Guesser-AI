@@ -135,6 +135,9 @@ document.addEventListener('DOMContentLoaded', () => {
     const difficultyNormalBtn = document.getElementById('difficulty-normal');
     const difficultyHardBtn = document.getElementById('difficulty-hard');
     const shareButton = document.getElementById('share-button');
+    const howToPlayModal = document.getElementById('how-to-play-modal');
+    const howToPlayButton = document.getElementById('how-to-play-button');
+    const closeModalButton = document.getElementById('close-modal-button');
 
     let state = {};
     let confettiParticles = [];
@@ -547,6 +550,20 @@ document.addEventListener('DOMContentLoaded', () => {
     addWordInput.addEventListener('keyup', (e) => {
         if (e.key === 'Enter') {
             handleAddWord();
+        }
+    });
+
+    howToPlayButton.addEventListener('click', () => {
+        howToPlayModal.classList.remove('opacity-0', 'pointer-events-none');
+    });
+
+    closeModalButton.addEventListener('click', () => {
+        howToPlayModal.classList.add('opacity-0', 'pointer-events-none');
+    });
+
+    howToPlayModal.addEventListener('click', (e) => {
+        if (e.target === howToPlayModal) {
+            howToPlayModal.classList.add('opacity-0', 'pointer-events-none');
         }
     });
 
